@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,24 +21,17 @@
                             <td>조회수</td>
                         </tr>
                     </thead>
+                    <c:forEach var="list" items="${list}">
                     <tbody class="tbody">
                         <tr>
-                            <td>1</td>
-                            <td><a href="">제모옥</a></td>
-                            <td>작성자</td>
-                            <td>2020-02-02</td>
-                            <td>1</td>
+                            <td>${list.id}</td>
+                            <td><a href="">${list.title}</a></td>
+                            <td>${list.writerId}</td>
+                            <td>${list.regDate}</td>
+                            <td>${list.hit}</td>
                         </tr>
-                        <tbody class="tbody">
-                            <tr>
-                                <td>2</td>
-                                <td><a href="">제모옥</a></td>
-                                <td>작성자</td>
-                                <td>2020-02-02</td>
-                                <td>2</td>
-                            </tr>
-                        </tbody>
                     </tbody>
+                    </c:forEach>
                 </table>
             </div>
     </section>
