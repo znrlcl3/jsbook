@@ -12,6 +12,8 @@ public interface BoardDao {
 
 	@Select("Select *FROM board ORDER BY id ASC LIMIT ${index} , 10")
 	List<Board> select(int index);
-	
+
+	@Select("SELECT COUNT(*) FROM board")
+	int selectBoardCount();
 	
 }

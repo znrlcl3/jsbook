@@ -35,11 +35,24 @@
                 </table>
                 <div class="page-wrap">
 	                <ul class="page-nation">
-	                	<li><a href="/board/list?p=1">1</a></li>
-	                	<li><a href="/board/list?p=2">2</a></li>
-	                	<li><a href="/board/list?p=3">3</a></li>
-	                	<li><a href="/board/list?p=4">4</a></li>
-	                	<li><a href="/board/list?p=5">5</a></li>
+	                	<c:if test="${paging.nowPage!=1}">
+	                		<li><a href="/board/list?p=${paging.nowPage-1}"><</a></li>
+	                	</c:if>
+			            
+			            <c:forEach var="i" begin="${paging.startPage}" end="${paging.endPage}">	                	
+				        	<c:if test="${i==param.p}">
+								<li><a style="background:gray; color:white" href="/board/list?p=${i}">${i}</a></li>
+							</c:if>
+							
+							<c:if test="${i!=param.p}">
+								<li><a class="" href="/board/list?p=${i}">${i}</a></li>
+							</c:if>
+			            </c:forEach>			                	
+	                	
+	                	<c:if test="${paging.nowPage!=paging.tempEndPage}">
+	                		<li><a href="/board/list?p=${paging.nowPage+1}">></a></li>
+	                	</c:if>
+	                		
 	                </ul>
                 </div>
             </div>
