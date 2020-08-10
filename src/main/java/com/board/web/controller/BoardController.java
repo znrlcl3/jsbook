@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.board.web.dao.BoardDao;
 
@@ -16,9 +17,10 @@ public class BoardController {
 	private BoardDao boardDao;
 	
 	@GetMapping("list")
-	public String list(Model model) {
+	public String list(@RequestParam(name="p" , defaultValue = "1") int page,Model model) {
 		
-		model.addAttribute("list", boardDao.select());
+		int index = (page*10) -10;
+		model.addAttribute("list", boardDao.select(index));
 		
 		return "/WEB-INF/view/board/list.jsp";
 	}
