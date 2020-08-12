@@ -1,4 +1,4 @@
-package com.board.web.dao.entity;
+package com.board.web.entity;
 
 import java.sql.Date;
 

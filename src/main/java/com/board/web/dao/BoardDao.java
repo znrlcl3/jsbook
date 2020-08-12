@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
-import com.board.web.dao.entity.Board;
+import com.board.web.entity.Board;
 
 @Mapper
 public interface BoardDao {
