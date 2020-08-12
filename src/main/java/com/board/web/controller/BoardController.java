@@ -39,6 +39,6 @@ public class BoardController {
 		
 	
 		
-		return "/WEB-INF/view/board/list.jsp";
+		return "board.list";
 	}
 }
