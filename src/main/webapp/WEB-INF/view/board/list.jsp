@@ -17,7 +17,7 @@
                     <tbody class="tbody">
                         <tr>
                             <td>${list.id}</td>
-                            <td><a href="">${list.title}</a></td>
+                            <td><a href="/board/detail?id=${list.id}">${list.title}</a></td>
                             <td>${list.writerId}</td>
                             <td>${list.regDate}</td>
                             <td>${list.hit}</td>

@@ -16,4 +16,7 @@ public interface BoardDao {
 	@Select("SELECT COUNT(*) FROM board")
 	int selectBoardCount();
 	
+	@Select("SELECT *FROM board where id = ${id}")
+	List<Board> selectDetail(int id);
+	
 }
