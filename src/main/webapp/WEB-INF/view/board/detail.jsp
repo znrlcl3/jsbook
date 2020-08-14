@@ -21,16 +21,16 @@
 					</span>
 				</div>
 				<div class="board-content">
-				<textarea>${detail.content}</textarea>
+				<textarea readonly="readonly">${detail.content}</textarea>
 				
 				</div>
 				
-		</c:forEach>
-	</div>
 	<div style="margin-top: 20px; margin-left:13px;">
-		<button type="button" class="btn btn-sm btn-primary" id="btnUpdate">수정</button>
+		<button type="button" class="btn btn-sm btn-primary" id="btnUpdate" onclick="location.href='edit?id=${detail.id}'">수정</button>
 		<button type="button" class="btn btn-sm btn-primary" id="btnDelete">삭제</button>
 		<button type="button" class="btn btn-sm btn-primary" id="btnList">목록</button>
+	</div>
+		</c:forEach>
 	</div>
 </div>
 

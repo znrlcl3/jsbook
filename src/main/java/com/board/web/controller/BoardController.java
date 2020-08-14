@@ -73,4 +73,22 @@ public class BoardController {
 		
 		return "redirect:/board/list";
 	}
+	
+	@GetMapping("edit")
+	public String edit(@RequestParam(name="id") int id , Model model) {
+		
+		List<Board> detail = boardService.detail(id);
+		model.addAttribute("detail" , detail);
+		
+		return "board.edit";
+	}
+	
+	@PostMapping("edit")
+	public String edit(@RequestParam(name="id") int id , String title, String content) {
+		
+		boardDao.updateBoard(id,title,content);
+		
+		
+		return "redirect:/board/list";
+	}
 }
