@@ -58,4 +58,19 @@ public class BoardController {
 		
 		return "redirect:/board/list";
 	}
+	
+	@GetMapping("reg")
+	public String reg() {
+		
+	
+		return "board.reg";
+	}
+	
+	@PostMapping("reg")
+	public String reg(String title , String writerId , String content) {
+		
+		boardDao.insertBoard(title,writerId,content);
+		
+		return "redirect:/board/list";
+	}
 }

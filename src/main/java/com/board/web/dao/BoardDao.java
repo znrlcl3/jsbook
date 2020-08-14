@@ -3,6 +3,7 @@ package com.board.web.dao;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -22,5 +23,8 @@ public interface BoardDao {
 
 	@Delete("DELETE FROM board where id = #{boardId}")
 	void delete(String boardId);
+
+	@Insert("INSERT INTO board (title,writerId,content) values (#{title},#{writerId},#{content})")
+	void insertBoard(String title, String writerId, String content);
 	
 }

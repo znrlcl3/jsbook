@@ -81,3 +81,6 @@ tr td:nth-child(2){
 	background:black;
 }
 
+.reg-btn{
+	float:right;
+}
