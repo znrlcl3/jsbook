@@ -3,23 +3,24 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
+<script defer src="/js/board/detail.js"></script>
 <div class="container" role="main">
 	<h2 class="d-none">게시판 디테일</h2>
 	<div class="bg-white rounded shadow-sm">
 		<c:forEach var="detail" items="${detail}">
-			<div class="board_title">
+		<div class="board-id d-none">${detail.id}</div>
+			<div class="board-title">
 					${detail.title}
 				</div>
-				<div class="board_info_box">
-					<span class="board_author">
+				<div class="board-info-box">
+					<span class="board-author">
 						작성자 : ${detail.writerId}
 					</span>
-					<span class="board_date">
+					<span class="board-date">
 						작성일 : ${detail.regDate}
 					</span>
 				</div>
-				<div class="board_content">
+				<div class="board-content">
 				<textarea>${detail.content}</textarea>
 				
 				</div>

@@ -2,6 +2,7 @@ package com.board.web.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -18,5 +19,8 @@ public interface BoardDao {
 	
 	@Select("SELECT *FROM board where id = ${id}")
 	List<Board> selectDetail(int id);
+
+	@Delete("DELETE FROM board where id = #{boardId}")
+	void delete(String boardId);
 	
 }
