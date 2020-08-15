@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<script defer src="/js/member/join.js"></script>
+<script defer src="/js/member/join.js"></script>ss
 
 <main>
 	<div class="login-background">
@@ -23,7 +23,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td id="id-danger" style="color: #d92742; font-weight: bold;">아이디가이미 존재합니다.</td>
+									<td id="id-danger" class="d-none" style="color: #d92742; font-weight: bold;">아이디가이미 존재합니다.</td>
 								</tr>
 									<th class="body-th"><label>비밀번호</label>
 									</th>
@@ -43,7 +43,7 @@
 									</td>
 								</tr>
 								<tr>
-									<td id="pwd-danger" style="color: #d92742; font-weight: bold;">일치하지않습니다.
+									<td id="pwd-danger" class="d-none" style="color: #d92742; font-weight: bold;">일치하지않습니다.
 									</td>
 								</tr>
 								<th class="body-th">

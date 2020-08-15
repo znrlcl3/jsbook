@@ -25,4 +25,11 @@ public class MemberService {
 		memberDao.insert(member);
 	}
 
+	public int idCheck(String memberId) {
+		// TODO Auto-generated method stub
+		
+		return memberDao.select(memberId); 
+		
+	}
+
 }

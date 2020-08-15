@@ -90,13 +90,13 @@ font-weight: bold;
     
 }
 #id-danger{
-    display: none;
+    
     font-size:12px;
     padding-bottom: 10px;
 }
 
 #pwd-danger{
-    display: none;
+ 
     font-size:12px;
     padding-top: -10px;
 }

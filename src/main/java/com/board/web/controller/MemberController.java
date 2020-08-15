@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.board.web.entity.Member;
 import com.board.web.service.MemberService;
@@ -32,5 +33,13 @@ public class MemberController {
 
 		memberService.insert(member);
 		return "redirect:/member/login";
+	}
+	
+	@ResponseBody
+	@PostMapping("join/id-data")
+	public int idCheck(String memberId) {
+		
+		return memberService.idCheck(memberId);
+		
 	}
 }

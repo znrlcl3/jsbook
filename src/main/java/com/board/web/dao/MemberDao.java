@@ -2,6 +2,7 @@ package com.board.web.dao;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
 
 import com.board.web.entity.Member;
 
@@ -10,6 +11,9 @@ public interface MemberDao {
 
 	@Insert("INSERT INTO member (uid,pwd,name,phone) values (#{uid},#{pwd},#{name},#{phone})")
 	void insert(Member member);
+
+	@Select("SELECT COUNT(*) FROM MEMBER where uid=#{memberId}")
+	int select(String memberId);
 
 	
 	
