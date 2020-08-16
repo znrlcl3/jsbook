@@ -1,4 +1,6 @@
 $(function () {
+	let flag=true;
+
 	//id 중복검사
 	
     $('#id-text').keyup(function () {
@@ -11,12 +13,12 @@ $(function () {
             success: function (data) {
             	if(data==1){
 					$('#id-danger').removeClass("d-none");
-					$('#submit-Button').prop("type", "button");
+					flag=false;
             	}
             	else{
             	
             		$('#id-danger').addClass("d-none");
-					$('#submit-Button').prop("type", "submit");            		
+            		flag=true;
             	}
             }
         })
@@ -29,20 +31,26 @@ $(function () {
     
 	    let pwd1 = $('.pwd1').val();
 	    let pwd2 = $('.pwd2').val();
-    	console.log(pwd1);
-    	console.log(pwd2);
     	
     	if(pwd1!=pwd2){
     		$('#pwd-danger').removeClass("d-none");
-    		$('#submit-Button').prop("type", "button");
+    		flag=false;
     	}
     	else{
     		$('#pwd-danger').addClass("d-none");
-    		$('#submit-Button').prop("type", "submit");
+    		flag=true;
     	}
     	
     });
     
+    $('#submit-Button').click(function(){
+    	if(flag==true){
+	    	$('#submit-Button').prop("type", "submit");
+    	}
+    	else{
+    		$('#submit-Button').prop("type", "button");
+    	}
+    });
     
     // ***************유효성검사 ***************
     
