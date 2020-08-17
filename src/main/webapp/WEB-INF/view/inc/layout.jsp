@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="/css/inc/header.css">
 <link rel="stylesheet" href="/css/reset.css">
 <link href='<tiles:getAsString name="css"/>' type="text/css" rel="stylesheet" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -14,13 +15,12 @@
 
 <body>
 	<!-- header 부분 -->
-	<%-- <header class="header">
+	<header class="header">
 		<tiles:insertAttribute name="header" />
-	</header> --%>
-
+	</header>
 	<!-- --------------------------- <body> --------------------------------------- -->
 	<!-- --------------------------- main --------------------------------------- -->
-	<tiles:insertAttribute name="main" />
+		<tiles:insertAttribute name="main" />
 
 </body>
 </html>

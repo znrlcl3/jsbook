@@ -6,11 +6,13 @@
   
    <definition name="board.*" template="/WEB-INF/view/inc/layout.jsp">
       <put-attribute name="css" value="/css/board/{1}.css" />
+      <put-attribute name="header" value="/WEB-INF/view/inc/header.jsp" />
       <put-attribute name="main" value="/WEB-INF/view/board/{1}.jsp" />
    </definition>
    
     <definition name="member.*" template="/WEB-INF/view/inc/layout.jsp">
       <put-attribute name="css" value="/css/member/{1}.css" />
+   	  <put-attribute name="header" value="/WEB-INF/view/inc/header.jsp" />
       <put-attribute name="main" value="/WEB-INF/view/member/{1}.jsp" />
    </definition>
  
