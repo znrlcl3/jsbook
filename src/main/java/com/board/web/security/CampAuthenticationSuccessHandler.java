@@ -1,6 +1,7 @@
 package com.board.web.security;
 
 import java.io.IOException;
+import java.security.Principal;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.savedrequest.SavedRequest;
@@ -30,7 +32,11 @@ public class CampAuthenticationSuccessHandler implements AuthenticationSuccessHa
 		
 		SavedRequest savedRequest = (SavedRequest)session.getAttribute
 				("SPRING_SECURITY_SAVED_REQUEST");
-
+		
+		String principal = SecurityContextHolder.getContext().getAuthentication().getName();
+		session.setAttribute("userId", principal);
+		
+		
 		if(savedRequest != null) {
 			String returnURL = savedRequest.getRedirectUrl();
 			response.sendRedirect(returnURL);

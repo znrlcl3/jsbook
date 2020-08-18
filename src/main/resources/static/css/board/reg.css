@@ -1,5 +1,5 @@
 body {
-	padding-top: 70px;
+	
 	padding-bottom: 30px;
 }
 
@@ -8,7 +8,9 @@ body {
 	font-size: 22pt;
 	margin: 10pt;
 }
-
+form{
+	padding-top: 70px;
+}
 .board-info-box {
 	color: #6B6B6B;
 	margin: 10pt;
