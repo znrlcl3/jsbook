@@ -51,27 +51,30 @@
 			</div>
 			
 			<!-- 네임수정  -->
-			<div class="name-detail d-none">
-				<h4>이름변경</h4>
-				<div>
-					<div>이름</div>
+			<form action="name-edit" method="POST">
+				<div class="name-detail d-none">
+					<h4>이름변경</h4>
 					<div>
-					<input class="name-input"  value="${proFile.name}"></input>
+						<div>이름</div>
+						<div>
+						<input class="name-input"  value="${proFile.name}" name="name"></input>
+						</div>
+					</div>
+					<div class="different-name"></div>
+					<div>
+					<button type="button" class="name-detail-cancle">취소</button>
+					<button type="submit" class="name-detail-save">저장</button>
 					</div>
 				</div>
-				<div class="different-name"></div>
-				<div>
-				<button class="name-detail-cancle">취소</button>
-				<button class="name-detail-save">저장</button>
-				</div>
-			</div>
+			</form>
 			<!-- 비밀번호 수정 -->
+			<form action="pwd-edit" method="POST">
 			<div class="pwd-detail d-none">
 				<h4>비밀번호 변경</h4>
 				<div>
 					<div>비밀번호 </div>
 					<div>
-					<input type="password" class="pwd-input" placeholder="******"></input>
+					<input type="password" class="pwd-input" placeholder="******" name="pwd"></input>
 					</div>
 				</div>
 				<div>
@@ -82,26 +85,29 @@
 				</div>
 				<div class="different-pwd"></div>
 				<div>
-				<button class="pwd-detail-cancle">취소</button>
-				<button class="pwd-detail-save">저장</button>
+				<button type="button" class="pwd-detail-cancle">취소</button>
+				<button type="submit" class="pwd-detail-save">저장</button>
 				</div>
 			</div>
+			</form>
 			<!-- 폰번호 수정 -->
+			<form action="phone-edit" method="POST">
 			<div class="phone-detail d-none">
 				<h4>번호변경</h4>
 				<div>
 					<div>핸드폰번호</div>
 					<div>
-					<input class="phone-input" value="${proFile.phone}"></input>
+					<input class="phone-input" value="${proFile.phone}" name="phone"></input>
 					</div>
 				</div>
 				<div class="different-phone"></div>
 				<div>
-				<button class="phone-detail-cancle">취소</button>
-				<button class="phone-detail-save">저장</button>
+				<button type="button" class="phone-detail-cancle">취소</button>
+				<button type="submit" class="phone-detail-save">저장</button>
 				</div>
 			</div>
+			</form>
 		</c:forEach>
 	</section>
-	<!-- <script defer src="/js/member/editProfile.js"></script> -->
+	<script defer src="/js/member/editProfile.js"></script>
 </main>

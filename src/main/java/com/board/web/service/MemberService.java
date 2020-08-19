@@ -32,4 +32,12 @@ public class MemberService {
 		
 	}
 
+	public void updatePwd(String pwd, String uid) {
+		PasswordEncoder encoder = new BCryptPasswordEncoder();
+		System.out.println(encoder.encode(pwd));
+		
+		memberDao.updatePwd(pwd,uid);
+		
+	}
+
 }

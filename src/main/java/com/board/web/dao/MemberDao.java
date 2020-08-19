@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.board.web.entity.Member;
 
@@ -19,6 +20,15 @@ public interface MemberDao {
 
 	@Select("SELECT *FROM member WHERE uid = #{uid}")
 	List<Member> selectEdit(String uid);
+
+	@Update("UPDATE member SET name=#{name} where uid=#{uid}")
+	void updateName(String name,String uid);
+
+	@Update("UPDATE member SET pwd=#{pwd} , modifyDate = CURRENT_TIMESTAMP where uid=#{uid}")
+	void updatePwd(String pwd, String uid);
+
+	@Update("UPDATE member SET phone=#{phone} where uid=#{uid}")
+	void updatePhone(String phone,String uid);
 	
 
 	
