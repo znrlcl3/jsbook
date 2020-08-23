@@ -29,6 +29,11 @@ public interface MemberDao {
 
 	@Update("UPDATE member SET phone=#{phone} where uid=#{uid}")
 	void updatePhone(String phone,String uid);
+
+	@Select("SELECT *FROM member where uid=#{username}")
+	Member get(String username);
+
+	
 	
 
 	

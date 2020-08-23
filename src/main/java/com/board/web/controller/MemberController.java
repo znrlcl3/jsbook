@@ -1,11 +1,14 @@
 package com.board.web.controller;
 
+import java.security.Principal;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,27 +18,51 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.board.web.dao.MemberDao;
 import com.board.web.entity.Member;
+import com.board.web.entity.MyUserDetails;
 import com.board.web.service.MemberService;
 
 @Controller
 @RequestMapping("/member/")
 public class MemberController {
 
+	
 	@Autowired
 	MemberService memberService;
 
 	@Autowired
 	MemberDao memberDao;
 
+	@GetMapping("list")
+	public String list(Model model, Authentication authentication/*Principal principal*/) throws ClassNotFoundException, SQLException {
+	      
+	   //MyUserDetails userDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+	   MyUserDetails userDetails = (MyUserDetails)authentication.getPrincipal();
+	      
+	   if(authentication != null) {
+	         
+	      //MyUserDetails userDetails = (MyUserDetails)principal;
+	      System.out.println("list controller");
+	      System.out.println(userDetails.getId());
+	      System.out.println(userDetails.getName());
+	      System.out.println(userDetails.getPassword());
+	      System.out.println(userDetails.getPhone());
+	      System.out.println(userDetails.getModifyDate());
+	   }
+	return null;
+	}
+
+
+
+	
 	@GetMapping("login")
 	public String login() {
-
+		
 		return "member.login";
 	}
 
 	@GetMapping("join")
 	public String join() {
-
+		
 		return "member.join";
 	}
 
@@ -88,6 +115,7 @@ public class MemberController {
 
 		return "redirect:/member/editProfile";
 	}
+	
 	@PostMapping("phone-edit")
 	public String editPhone(String phone,HttpServletRequest request, Model model) {
 		
@@ -98,4 +126,6 @@ public class MemberController {
 		
 		return "redirect:/member/editProfile";
 	}
+	
+
 }
