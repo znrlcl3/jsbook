@@ -1,6 +1,5 @@
 package com.board.web.controller;
 
-import java.security.Principal;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -32,6 +31,7 @@ public class MemberController {
 	@Autowired
 	MemberDao memberDao;
 
+	//유저확장
 	@GetMapping("list")
 	public String list(Model model, Authentication authentication/*Principal principal*/) throws ClassNotFoundException, SQLException {
 	      
@@ -125,6 +125,29 @@ public class MemberController {
 		memberDao.updatePhone(phone,uid);
 		
 		return "redirect:/member/editProfile";
+	}
+	
+	@GetMapping("findId")
+	public String findId() {
+		
+		return "member.findId";
+	}
+	
+	
+	@PostMapping("find-id")
+	public String findId(String name ,String phone1,String phone2,String phone3) {
+		
+		
+		String x = memberDao.findId(name,phone1,phone2,phone3);
+		System.out.println(x);
+		
+		return "redirect:/";
+	}
+	
+	@GetMapping("findPwd")
+	public String findPwd() {
+		
+		return "member.findPwd";
 	}
 	
 

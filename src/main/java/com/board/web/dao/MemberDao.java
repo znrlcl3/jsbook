@@ -33,6 +33,9 @@ public interface MemberDao {
 	@Select("SELECT *FROM member where uid=#{username}")
 	Member get(String username);
 
+	@Select("SELECT uid from member where name = #{name} AND phone='${phone1}-${phone2}-${phone3}'")
+	String findId(String name, String phone1, String phone2, String phone3);
+
 	
 	
 

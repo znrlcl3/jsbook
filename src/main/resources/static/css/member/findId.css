@@ -1,0 +1,71 @@
+.member-information {
+	width: 1100px;
+	height: 800px;
+	margin: auto;
+	margin-top: 50px;
+}
+
+h1 {
+	color: black;
+	font-size: 30px;
+	font-family: 'S-CoreDream-3Light';
+	font-weight: bold;
+	margin-bottom: 30px;
+}
+
+h2 {
+	font-size: 25px;
+	margin-left: 30px;
+	margin-top: 30px;
+	
+}
+
+
+.member-profile {
+	border-radius: 10px;
+	border: 1px solid gray;
+	height: 400px;
+	width: 50%;
+	font-family: 'S-CoreDream-3Light';
+}
+
+.profile-content {
+	height:200px;
+	margin-top : 30px;
+	margin-left: 30px;
+	margin-right: 20px;
+	border-bottom: 1px solid rgb(227, 227, 227);
+}
+.findId-name{
+	margin-left:90px;
+}
+.profile-content div:nth-child(1){
+	margin-bottom:10px;
+}
+.findId-phone1{
+	margin-left:40px;
+	width:60px;
+	text-align:center;
+}
+.findId-phone2{
+	width:90px;
+	text-align:center;
+}
+.findId-phone3{
+	width:90px;
+	text-align:center;
+}
+
+.submit-button{
+	margin-top:40px;
+	margin-left:50px;
+	    padding: 9px 14px;
+    font-size: 15px;
+    line-height: normal;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    width: 320px;
+    border: none;
+    font-weight: bold;
+}

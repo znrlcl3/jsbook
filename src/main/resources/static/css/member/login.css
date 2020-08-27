@@ -34,7 +34,7 @@ body {
 	margin-top: 270px;
 	background: rgba(0, 0, 0, 0.7);;
 	width: 400px;
-	height: 250px;
+	height: 290px;
 	font-weight: bold;
 }
 
@@ -91,7 +91,25 @@ input:focus {
 	border-radius: 5px;
 	width: 320px;
 	border:none;
+	font-weight:bold;
 }
 .login-submit:hover{
 	background:gray;
+}
+.find-form{
+	width:320px;
+	height:30px;
+	margin-top:10px;
+	background: rgb(239, 239, 239);
+}
+.find-form li{
+	float:left;
+	padding-top:3px;
+	width:160px;
+	text-align: center;
+	font-weight:normal;
+	font-size:14px;
+}
+.find-form li:nth-child(1){
+	
 }
