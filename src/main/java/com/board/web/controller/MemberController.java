@@ -11,9 +11,12 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.board.web.dao.MemberDao;
 import com.board.web.entity.Member;
@@ -89,7 +92,6 @@ public class MemberController {
 		String uid = (String) session.getAttribute("userId");
 		List<Member> list = memberDao.selectEdit(uid);
 
-//		System.out.println(list);
 		model.addAttribute("proFile", list);
 
 		return "member.editProfile";
@@ -102,7 +104,6 @@ public class MemberController {
 
 		String uid = (String) session.getAttribute("userId");
 		memberDao.updateName(name,uid);
-		System.out.println("dd");
 		return "redirect:/member/editProfile";
 	}
 	@PostMapping("pwd-edit")
@@ -135,19 +136,30 @@ public class MemberController {
 	
 	
 	@PostMapping("find-id")
-	public String findId(String name ,String phone1,String phone2,String phone3) {
+	public String findId(String name ,String phone1,String phone2,String phone3,Model model
+			,RedirectAttributes redirectAttributes) {
+	
 		
+		String findIdResult = memberDao.findId(name,phone1,phone2,phone3);
 		
-		String x = memberDao.findId(name,phone1,phone2,phone3);
-		System.out.println(x);
+		redirectAttributes.addFlashAttribute("uid",findIdResult);
+		 
 		
-		return "redirect:/";
+		return "redirect:/member/findIdResult";
 	}
 	
 	@GetMapping("findPwd")
 	public String findPwd() {
 		
 		return "member.findPwd";
+	}
+	
+	@GetMapping("findIdResult")
+	public String findPwd(@ModelAttribute("uid") String result,Model model) {
+		
+		model.addAttribute("result" , result);
+		
+		return "member.findIdResult";
 	}
 	
 
