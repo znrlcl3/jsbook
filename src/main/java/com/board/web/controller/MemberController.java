@@ -149,17 +149,51 @@ public class MemberController {
 	}
 	
 	@GetMapping("findPwd")
-	public String findPwd() {
+	public String findPwd(@RequestParam(name="id",defaultValue = "") String uid , Model model) {
+		
+		model.addAttribute("result", uid);
 		
 		return "member.findPwd";
 	}
 	
+	@PostMapping("find-pwd")
+	public String findPwd(String uid,String name , String phone1,String phone2,String phone3
+							,RedirectAttributes redirectAttributes) {
+		
+		int countCheck = memberDao.checkUser(uid,name,phone1,phone2,phone3);
+		
+		if(countCheck ==1) {
+			
+			redirectAttributes.addFlashAttribute("uid",uid);
+			return "redirect:/member/changePwd";
+			
+		}
+		
+		return "redirect:/member/findPwd";
+	}
+	
 	@GetMapping("findIdResult")
-	public String findPwd(@ModelAttribute("uid") String result,Model model) {
+	public String findIdResult(@ModelAttribute("uid") String result,Model model) {
 		
 		model.addAttribute("result" , result);
 		
 		return "member.findIdResult";
+	}
+	
+	@GetMapping("changePwd")
+	public String changePwd(@ModelAttribute("uid") String uid,Model model) {
+		
+		model.addAttribute("uid", uid);
+		
+		return "member.changePwd";
+	}
+	
+	@PostMapping("changePwd")
+	public String changePwd(String uid,String pwd2) {
+		
+		memberService.changePwd(uid, pwd2);
+		
+		return "member.changePwd";
 	}
 	
 

@@ -36,6 +36,13 @@ public interface MemberDao {
 	@Select("SELECT uid from member where name = #{name} AND phone='${phone1}-${phone2}-${phone3}'")
 	String findId(String name, String phone1, String phone2, String phone3);
 
+	@Select("SELECT COUNT(*) FROM member where uid=#{uid} AND name=#{name} AND phone='${phone1}-${phone2}-${phone3}'")
+	int checkUser(String uid, String name, String phone1, String phone2, String phone3);
+
+	@Update("UPDATE member SET pwd=#{pwd2} where uid=#{uid}")
+	void changePwd(String uid, String pwd2);
+
+
 	
 	
 

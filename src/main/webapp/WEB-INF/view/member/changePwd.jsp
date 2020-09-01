@@ -8,23 +8,21 @@
 	<section class="member-information">
 			<h1>비밀번호 바꾸기</h1>
 			<div class="member-profile">
-				<form action="find-pwd" method="post">
+				<form action="changePwd" method="post">
 					<div class="profile-content">
-						<c:set var="result" value="${result}"/>
+						<c:set var="uid" value="${uid}"/>
+						<div class="d-none">
+							<input class="d-none" name="uid" value="${uid}">
+						</div>
 							<div>
-								아이디는
-								<input name="uid" type="text" class="findId-uid"value="${result}">
+								비밀번호
+								<input name="pwd1" type="text" class="findId-uid">
 							</div>
 							<div>
-								이름
-								<input name="name" type="text" class="findId-name">
+								비밀번호 확인
+								<input name="pwd2" type="text" class="findId-name">
 							</div>
-							<div>
-								전화번호
-								<input name="phone1" type="text" class="findId-phone1" pattern="^\w{3}$" value="010"> 
-							<input name="phone2" type="text" class="findId-phone2" pattern="^\w{4}$"> 
-							<input name="phone3" type="text" class="findId-phone3" pattern="^\w{4}$">
-							</div>
+							
 							<div class="find-button-form">
 								<button class="submit-button" type="submit">비밀번호 바꾸기</button>	
 							</div>

@@ -40,4 +40,12 @@ public class MemberService {
 		
 	}
 
+	public void changePwd(String uid,String pwd2) {
+		PasswordEncoder encoder = new BCryptPasswordEncoder();
+		pwd2 =encoder.encode(pwd2);
+		memberDao.changePwd(uid,pwd2);
+		
+		
+	}
+
 }
