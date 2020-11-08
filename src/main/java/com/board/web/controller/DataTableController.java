@@ -20,7 +20,7 @@ public class DataTableController {
 	
 	@GetMapping("list")
 	public String list(Model model) {
-		
+		 
 		int count = dataTableDao.selectPageCount();	
 		model.addAttribute("count",count);
 		
