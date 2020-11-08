@@ -15,5 +15,11 @@
    	  <put-attribute name="header" value="/WEB-INF/view/inc/header.jsp" />
       <put-attribute name="main" value="/WEB-INF/view/member/{1}.jsp" />
    </definition>
+   
+     <definition name="dataTable.*" template="/WEB-INF/view/inc/layout.jsp">
+      <put-attribute name="css" value="/css/dataTable/{1}.css" />
+   	  <put-attribute name="header" value="/WEB-INF/view/inc/header.jsp" />
+      <put-attribute name="main" value="/WEB-INF/view/dataTable/{1}.jsp" />
+   </definition>
  
 </tiles-definitions>
