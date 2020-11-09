@@ -2,6 +2,7 @@ package com.board.web.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -15,5 +16,8 @@ public interface DataTableDao {
 
 	@Select("SELECT A.ID id,A.TITLE title,B.NAME dept_name,C.NAME writerId,A.REGDATE regDate,A.kind FROM board_datatable as A, dept as B, member_datatable as C WHERE A.WRITERID=C.USERID AND B.ID= C.DEPT_ID ORDER BY A.ID ASC")
 	List<DataTable> selectBoard();
+
+	@Insert("Insert into board_datatable (title,content,kind,writerId) values (#{writeTitle},#{writeContent},#{writeKind},#{writerId})")
+	int insertBoard(String writeTitle, String writerId, String writeKind,String writeContent);
 
 }

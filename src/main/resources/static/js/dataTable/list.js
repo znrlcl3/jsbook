@@ -27,7 +27,7 @@
     		 
 
     		 $("#searchForm")
-    		 .attr("action", "/board/main.do")
+    		 .attr("action", "/dataTable/list")
     		 .submit();
     		 
     	 });
@@ -51,5 +51,49 @@
     		 $("#clearButton").attr("type", "reset");
     		 
     	 });
+    	 
+    	  <!-- 제이쿼리 위젯 -->
+    	 
+    	 $("#writeBoard").dialog({
+            	autoOpen:false, //자동으로 열리지않게
+                position:{
+                	my:"center", 
+                    at:"center", 
+                    of:"section" 
+                }, //가운데
+                modal:true, //모달대화상자
+                resizable:false, //크기 조절 못하게
+                    
+                buttons:{
+                    "확인":function(){
+                    console.log($(".write-title").val());
+                    
+	          $.ajax({
+			            type: "POST",
+			            url: "/dataTable/insert-data",
+			            data : {writeTitle:$(".write-title").val(),
+			          			writeContent:$(".write-content").val(),
+			            		writerId:$(".write-writerId").val(),
+			            		writeKind:$(".write-kind").val(),
+			            },
+			            async: "true",
+			           
+			            datatype: "json",
+			            success: function (data) {
+			            	console.log("성공");
+			            }
+			        })
+                    
+                        $(this).dialog("close");
+                    },"취소":function(){
+                        $(this).dialog("close");
+                    }
+                }
+            });
+         		
+        	$("#insertButton").click(function() {
+           		$("#writeBoard").dialog("open");
+           	});
+            	
     	 
      } );
